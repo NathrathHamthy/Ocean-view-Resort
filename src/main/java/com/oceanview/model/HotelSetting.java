@@ -109,4 +109,46 @@ public class HotelSetting implements Serializable {
     public void setUpdatedBy(Integer updatedBy) {
         this.updatedBy = updatedBy;
     }
+
+    public boolean getValueAsBoolean() {
+        return "true".equalsIgnoreCase(settingValue);
+    }
+
+    public int getValueAsInt() {
+        try {
+            return Integer.parseInt(settingValue);
+        } catch (NumberFormatException ex) {
+            return 0;
+        }
+    }
+
+    public double getValueAsDouble() {
+        try {
+            return Double.parseDouble(settingValue);
+        } catch (NumberFormatException ex) {
+            return 0.0;
+        }
+    }
+
+    public String getDisplayKey() {
+        if (settingKey == null) {
+            return "";
+        }
+        String[] parts = settingKey.split("\\.");
+        StringBuilder result = new StringBuilder();
+        for (String part : parts) {
+            if (result.length() > 0) {
+                result.append(' ');
+            }
+            if (!part.isEmpty()) {
+                result.append(Character.toUpperCase(part.charAt(0))).append(part.substring(1));
+            }
+        }
+        return result.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "HotelSetting{id=" + settingId + ", key='" + settingKey + "', value='" + settingValue + "'}";
+    }
 }
