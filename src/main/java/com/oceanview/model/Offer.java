@@ -254,9 +254,9 @@ public class Offer implements Serializable {
     
     public String getDiscountDescription() {
         if (isPercentageDiscount()) {
-            return discountValue + "% off";
+            return discountValue.stripTrailingZeros().toPlainString() + "% off";
         } else {
-            return "$" + discountValue + " off";
+            return "Rs. " + discountValue.stripTrailingZeros().toPlainString() + " off";
         }
     }
     
@@ -288,3 +288,4 @@ public class Offer implements Serializable {
                 '}';
     }
 }
+
