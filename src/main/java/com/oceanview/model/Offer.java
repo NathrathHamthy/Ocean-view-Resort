@@ -1,4 +1,4 @@
-﻿package com.oceanview.model;
+package com.oceanview.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -288,4 +288,3 @@ public class Offer implements Serializable {
                 '}';
     }
 }
-
