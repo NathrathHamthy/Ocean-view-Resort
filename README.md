@@ -284,6 +284,4 @@ src/test/
   resources/test-application.properties
 ```
 
-## Academic Context
 
-This is an academic project for CIS6003 Advanced Programming (ICBT).
